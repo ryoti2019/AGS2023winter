@@ -1,0 +1,46 @@
+Thank you for downloading!
+
+You are allowed to use the graphics of this game on any kind of project.
+The rest of the assets that don't belong to me may have their own terms and licenses, so be careful. 
+
+If you are interested in seeing more of this, please consider supporting me on Patreon at patreon.com/hitaitaro
+
+I hope you enjoy it!
+
+Sincerely,
+Sebastián
+
+Website: hitaitaro.com
+E-mail: sebastian@hitaitaro.com
+
+# Plugins used
+
+CC_AutoFullScreen by Coelocanth
+DotMoveSystem by unagi ootoro
+N_EnchancedTouchUIButton by Nolonar
+N_Pixelate by Nolonar
+Community_Lighting_MZ by Terrax, iVillain, Aesica, Eliaquim, Alexandre and Nekohime1989
+Cae_MenuDisplayOpts by Caethyril
+Cae_OnUseEffects by Caethyril
+GabeMZ_FogEffects by Gabe (Gabriel Nascimento)
+DragonSmoothCamera by Jorge "Maker" Augusto (Dragon)
+wasdKeyMZ by Shitsudo Kei
+ARP_CommandIcons by Atreyo Ray
+CGMZ_ExitToDesktop by Casper Gaming
+CGMZ_GameOver by Casper Gaming
+GALV_AnimatedBattleback by Galv
+GALV_CharacterShadowsMZ by Galv
+GALV_MoveRoutExtrasMZ by Galv
+AkeaAnimatedBattleSystem by Raisen (Mauricio Pastana)
+Mimosa_MouseCursor by Chaucer
+HealOnLevelUp by Shaz
+TAA_MapTitleScreen by T. A. A. (taaspider)
+DK_Title_Links by DKPlugins
+
+# Sounds used
+
+Cough SFX by poorenglishjuggler (freesound.org)
+
+# Engine
+
+RPG Maker MZ

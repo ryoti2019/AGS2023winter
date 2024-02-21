@@ -1,0 +1,189 @@
+void EnemyBase::StageCollision(void)
+{
+
+
+	// プレイヤーの位置を取得
+	Vector2 pPos = gameScene_->GetPlayerPos();
+
+	// プレイヤーに向けたベクトル
+	Vector2F vec;
+	vec.x = static_cast<float>(pPos.x - pos_.x);
+	vec.y = static_cast<float>(pPos.y - pos_.y);
+
+	// 移動前座標を確保
+	Vector2F prePos = pos_;
+
+	// 移動予定の座標を確保
+	Vector2F movedPos = pos_;
+
+	// 足元座標の宣言
+	Vector2 footPos;
+
+	// ベクトルの大きさ
+	float size = sqrtf(vec.x * vec.x + vec.y * vec.y);
+
+	if (size < speed_)
+	{
+		// 近すぎるので移動しない
+	}
+	else
+	{
+		// 移動する
+
+		// 単位ベクトル(純粋方向）
+		Vector2F direction;
+		direction.x = vec.x / size;
+		direction.y = vec.y / size;
+
+		// 移動量
+		Vector2F movePow;
+		movePow.x = direction.x * speed_;
+		movePow.y = direction.y * speed_;
+
+		// 移動処理(座標+移動量)
+		movedPos.x += (movePow.x);
+		movedPos.y += (movePow.y);
+
+		// 向きを変える(移動量が大きい向きを優先)
+		if (abs(direction.x) < abs(direction.y))
+		{
+			// 左向きか右向きか
+			if (direction.x > 0)
+			{
+				dir_ = AsoUtility::DIR::RIGHT;
+			}
+			else
+			{
+				dir_ = AsoUtility::DIR::LEFT;
+			}
+
+			// 左向きか右向きか
+			if (direction.y > 0)
+			{
+				dir_ = AsoUtility::DIR::UP;
+			}
+			else
+			{
+				dir_ = AsoUtility::DIR::DOWN;
+			}
+		}
+	}
+
+	// 衝突判定(Y)
+	footPos = movedPos;
+	footPos.y += 20;
+
+	// ステージの衝突判定
+	if (gameScene_->IsCollisionStage(movedPos) == true
+		|| gameScene_->IsCollisionStage(footPos) == true
+		|| gameScene_->IsCollisionDoor(movedPos) == true
+		|| gameScene_->IsCollisionDoor(footPos) == true)
+	{
+
+		Stage* stage = gameScene_->GetStage();
+
+		Vector2 mapPos1 = gameScene_->World2MapPos(movedPos);
+		Vector2 mapPos2 = gameScene_->World2MapPos(footPos);
+
+		int chipNo1 = stage->GetDoorNo(mapPos1);
+		int chipNo2 = stage->GetDoorNo(mapPos2);
+
+
+		if ((stage->IsDoor1(chipNo1) || stage->IsDoor1(chipNo2))
+			&& gameScene_->GetKey1())
+		{
+			// 移動可能と判断できたので、現座標を更新
+			pos_ = movedPos;
+		}
+
+		if ((stage->IsDoor2(chipNo1) || stage->IsDoor2(chipNo2))
+			&& gameScene_->GetKey2())
+		{
+			// 移動可能と判断できたので、現座標を更新
+			pos_ = movedPos;
+		}
+
+		if ((stage->IsDoor3(chipNo1) || stage->IsDoor3(chipNo2))
+			&& gameScene_->GetKey3())
+		{
+			// 移動可能と判断できたので、現座標を更新
+			pos_ = movedPos;
+		}
+
+		if ((stage->IsDoor4(chipNo1) || stage->IsDoor4(chipNo2))
+			&& gameScene_->GetKey4())
+		{
+			// 移動可能と判断できたので、現座標を更新
+			pos_ = movedPos;
+		}
+
+		// 衝突している -> 座標を元に戻す
+		movedPos = pos_;
+	}
+
+	else
+	{
+		// 移動可能と判断できたので、現座標を更新
+		pos_ = movedPos;
+	}
+
+	// 衝突判定(X)
+	footPos = movedPos;
+	footPos.y += 20;
+
+	// ステージの衝突判定
+	if (gameScene_->IsCollisionStage(movedPos) == true
+		|| gameScene_->IsCollisionStage(footPos) == true
+		|| gameScene_->IsCollisionDoor(movedPos) == true
+		|| gameScene_->IsCollisionDoor(footPos) == true)
+	{
+
+		Stage* stage = gameScene_->GetStage();
+
+		Vector2 mapPos1 = gameScene_->World2MapPos(movedPos);
+		Vector2 mapPos2 = gameScene_->World2MapPos(footPos);
+
+		int chipNo1 = stage->GetDoorNo(mapPos1);
+		int chipNo2 = stage->GetDoorNo(mapPos2);
+
+
+		if ((stage->IsDoor1(chipNo1) || stage->IsDoor1(chipNo2))
+			&& gameScene_->GetKey1())
+		{
+			// 移動可能と判断できたので、現座標を更新
+			pos_ = movedPos;
+		}
+
+		if ((stage->IsDoor2(chipNo1) || stage->IsDoor2(chipNo2))
+			&& gameScene_->GetKey2())
+		{
+			// 移動可能と判断できたので、現座標を更新
+			pos_ = movedPos;
+		}
+
+		if ((stage->IsDoor3(chipNo1) || stage->IsDoor3(chipNo2))
+			&& gameScene_->GetKey3())
+		{
+			// 移動可能と判断できたので、現座標を更新
+			pos_ = movedPos;
+		}
+
+		if ((stage->IsDoor4(chipNo1) || stage->IsDoor4(chipNo2))
+			&& gameScene_->GetKey4())
+		{
+			// 移動可能と判断できたので、現座標を更新
+			pos_ = movedPos;
+		}
+
+		// 衝突している -> 座標を元に戻す
+		movedPos = pos_;
+	}
+
+	else
+	{
+		// 移動可能と判断できたので、現座標を更新
+		pos_ = movedPos;
+	}
+
+
+}
